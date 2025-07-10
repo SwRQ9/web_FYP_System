@@ -1,0 +1,206 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+header nav a:hover {
+    color: #007bff;
+}
+
+/* Resource Sharing Section */
+.resource-sharing {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resource-sharing h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* File Upload Form */
+.upload-form {
+    margin-bottom: 40px;
+}
+
+.upload-form h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.upload-form .form-group {
+    margin-bottom: 15px;
+}
+
+.upload-form label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.upload-form input[type="text"],
+.upload-form textarea,
+.upload-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.upload-form input[type="text"]:focus,
+.upload-form textarea:focus,
+.upload-form input[type="file"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.upload-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.upload-form .submit-btn {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-form .submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Uploaded Files Section */
+.uploaded-files {
+    margin-top: 40px;
+}
+
+.uploaded-files h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.file-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-card h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.file-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.file-card .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.file-card .actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.file-card .actions .download-btn {
+    background-color: #4caf50; /* Green for download */
+    color: #fff;
+}
+
+.file-card .actions .download-btn:hover {
+    background-color: #388e3c; /* Darker green */
+}
+
+.file-card .actions .delete-btn {
+    background-color: #f44336; /* Red for delete */
+    color: #fff;
+}
+
+.file-card .actions .delete-btn:hover {
+    background-color: #d32f2f; /* Darker red */
+}

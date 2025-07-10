@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Remove Goals</title>
+    <link rel="stylesheet" href="add_remove_goals.css">
+    <style>
+        .goal-container {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add/Remove Goals</h2>
+    <form id="goalsForm" method="post" action="update_goals.php">
+        <div id="goals">
+            <div class="goal-container">
+                <input type="text" name="goals[]" placeholder="Enter a goal">
+            </div>
+        </div>
+        <button type="button" onclick="addGoal()">Add Goal</button>
+        <button type="button" onclick="removeGoal()">Remove Goal</button>
+        <button type="submit">Submit Goals</button>
+    </form>
+
+    <script>
+        function addGoal() {
+            var div = document.createElement("div");
+            div.className = "goal-container";
+            div.innerHTML = '<input type="text" name="goals[]" placeholder="Enter a goal">';
+            document.getElementById("goals").appendChild(div);
+        }
+
+        function removeGoal() {
+            var goals = document.getElementById("goals");
+            if (goals.children.length > 1) {
+                goals.removeChild(goals.lastChild);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Management - web assignment</title>
+    <link rel="stylesheet" href="..\css\meeting_management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../js/meeting_management.js" defer></script>
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>web assignment</h1>
+        </div>
+        <nav>
+            <a href="student_dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Meeting Management Section -->
+    <section class="meeting-management">
+        <h2>Meeting Management</h2>
+
+        <!-- Meeting Scheduling Form -->
+        <div class="meeting-scheduling">
+            <h3>Schedule a Meeting</h3>
+            <form id="scheduleMeetingForm" action="..\php\schedule_meeting.php" method="POST">
+
+                <div class="form-group">
+                    <label for="meeting-date">Date:</label>
+                    <input type="date" id="meeting-date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="meeting-time">Time:</label>
+                    <input type="time" id="meeting-time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="meeting-agenda">Agenda:</label>
+                    <textarea id="meeting-agenda" name="agenda" rows="4" placeholder="Enter meeting agenda" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" placeholder="Enter meeting title" required>
+                </div>
+                <div class="form-group">
+                    <label for="supervisor_id">Supervisor ID:</label>
+                    <input type="number" id="supervisor_id" name="supervisor_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="student_id">Student ID:</label>
+                    <input type="number" id="student_id" name="student_id" required>
+                </div>
+                <button type="submit" class="submit-btn">Schedule Meeting</button>
+            </form>
+            
+        </div>
+
+        
+
+        <!-- Meeting Log Form -->
+<div class="meeting-log">
+    <h3>Log Meeting Notes</h3>
+    <form id="meetingLogForm" action="..\php\log_meeting.php" method="POST">
+        <div class="form-group">
+            <label for="meeting_id">Meeting ID:</label>
+            <input type="number" id="meeting_id" name="meeting_id" placeholder="Enter Meeting ID" required>
+        </div>
+        <div class="form-group">
+            <label for="meeting-notes">Meeting Notes:</label>
+            <textarea id="meeting-notes" name="notes" rows="6" placeholder="Enter meeting notes" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="action-items">Action Items:</label>
+            <textarea id="action-items" name="action_items" rows="4" placeholder="Enter action items" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Log Meeting</button>
+    </form>
+</div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle Delete Meeting
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const meetingCard = this.closest('.meeting-card');
+                    const meetingDate = meetingCard.querySelector('p strong').textContent;
+    
+                    if (confirm(`Are you sure you want to delete the meeting on ${meetingDate}?`)) {
+                        fetch('../php/delete_meeting.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: `meeting_date=${encodeURIComponent(meetingDate)}`
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Meeting deleted successfully!');
+                                meetingCard.remove();
+                            } else {
+                                alert('Error: ' + data.message);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                    }
+                });
+            });
+    
+            // Handle View Meeting Details
+            document.querySelectorAll('.view-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const meetingCard = this.closest('.meeting-card');
+                    const agenda = meetingCard.querySelector('p:nth-child(3)').textContent;
+    
+                    alert(`Meeting Agenda: ${agenda}`);
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

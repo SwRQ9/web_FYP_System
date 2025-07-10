@@ -1,0 +1,177 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+header nav a:hover {
+    color: #555;
+}
+
+/* Welcome Section */
+.welcome-section {
+    background-color: #333; /* Dark grey background */
+    color: #fff; /* White text */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.welcome-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.welcome-section .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.welcome-section .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.welcome-section .login-btn {
+    background-color: #fff; /* White background */
+    color: #333; /* Dark grey text */
+}
+
+.welcome-section .login-btn:hover {
+    background-color: #f0f0f0; /* Light grey on hover */
+}
+
+.welcome-section .register-btn {
+    background-color: transparent;
+    border: 2px solid #fff; /* White border */
+    color: #fff; /* White text */
+}
+
+.welcome-section .register-btn:hover {
+    background-color: #fff; /* White background on hover */
+    color: #333; /* Dark grey text on hover */
+}
+
+/* Key Features Section */
+.key-features {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.key-features h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.feature-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-card i {
+    font-size: 2rem;
+    color: #555; /* Grey icon color */
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Dark grey background */
+    color: #fff; /* White text */
+    font-size: 0.9rem;
+}
+
+footer nav {
+    margin-top: 10px;
+}
+
+footer nav a {
+    margin: 0 10px;
+    color: #fff; /* White text */
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}

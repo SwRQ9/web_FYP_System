@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Student to Project - web assignment </title>
+    <link rel="stylesheet" href="..\css\student_to_project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>web assignment </h1>
+        </div>
+        <nav>
+            <a href="supervisor_dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Student-to-Project Assignment Section -->
+    <section class="student-assignment">
+        <h2>Assign Student to Project</h2>
+        <form id="assignmentForm">
+            <div class="form-group">
+                <label for="student-select">Select Student:</label>
+                <select id="student-select" name="student-select" required>
+                    <option value="">-- Select a student --</option>
+                    <option value="john-doe">John Doe</option>
+                    <option value="jane-smith">Jane Smith</option>
+                    <option value="alex-johnson">Alex Johnson</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="project-select">Select Project:</label>
+                <select id="project-select" name="project-select" required>
+                    <option value="">-- Select a project --</option>
+                    <option value="ai-chatbot">AI Chatbot Development</option>
+                    <option value="e-commerce">E-Commerce Platform</option>
+                    <option value="blockchain-voting">Blockchain-Based Voting System</option>
+                </select>
+            </div>
+            <button type="submit" class="assign-btn">Assign</button>
+        </form>
+
+        <!-- List of Assigned Students -->
+        <div class="assigned-students">
+            <h3>Assigned Students</h3>
+            <div class="students-list">
+                <div class="student-card">
+                    <p><strong>Student:</strong> John Doe</p>
+                    <p><strong>Project:</strong> AI Chatbot Development</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+                <div class="student-card">
+                    <p><strong>Student:</strong> Jane Smith</p>
+                    <p><strong>Project:</strong> E-Commerce Platform</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

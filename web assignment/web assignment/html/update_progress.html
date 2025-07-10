@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Project Progress</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .project {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .project strong {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .project span {
+            display: block;
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+
+        .project input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .project button {
+            margin-top: 10px;
+            width: auto;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .project button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Update Project Progress</h2>
+    <div class="projects-container">
+        <!-- Replace this comment with server-side code to fetch and display project data -->
+        <div class="project">
+            <strong>Project ID:</strong> 1<br>
+            <strong>Project Title:</strong> Example Project<br>
+            <strong>Description:</strong> This is an example project description.<br>
+            <span><strong>Progress:</strong> <input type="number" value="50">%<br></span>
+            <button>Update Progress</button>
+        </div>
+        <!-- Repeat similar blocks for other projects -->
+    </div>
+</body>
+</html>

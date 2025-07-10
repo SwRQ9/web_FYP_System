@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve or Reject Project Proposals</title>
+    <link rel="stylesheet" href="approve_reject_proposal.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Update Proposal Status</h2>
+        <form method="post" action="approve_reject_proposal.php">
+            <label for="proposal_id">Proposal ID:</label>
+            <input type="text" id="proposal_id" name="proposal_id" required><br>
+            
+            <label for="status">Status (approved/rejected):</label>
+            <input type="text" id="status" name="status" required><br>
+            
+            <button type="submit" name="update_status">Update Status</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervisor Dashboard - web assignment </title>
+    <link rel="stylesheet" href="..\css\supervisor_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Supervisor Dashboard</h1>
+        </div>
+        <nav>
+            <input type="search" placeholder="Search students..." class="search-bar">
+            <a href="home_page.html">Home</a>
+            <a href="login.html">Logout</a>
+            <a href="supervisor_dashboard.html">Dashboard</a>
+            <a href="view_proposal.html">View Proposals & Status</a>
+
+        </nav>
+    </header>
+
+    <!-- Layout Container -->
+    <div class="layout">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="supervisor_dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="student_dashboard.html"><i class="fas fa-users"></i> Manage Students</a></li>
+                <li><a href="approve_reject_proposal.html"><i class="fas fa-project-diagram"></i> Manage Proposals</a></li>
+                <li><a href="meeting_management.html"><i class="fas fa-calendar-alt"></i> Manage Meetings</a></li>
+                <li><a href="marksheet.html"><i class="fas fa-file-alt"></i> Marksheet</a></li>
+                <li><a href="resourse_page.html"><i class="fas fa-folder"></i> Resources</a></li>
+                <li><a href="announcements.html"><i class="fas fa-bullhorn"></i> Announcements</a></li>
+                <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Dashboard Overview Section -->
+            <section id="dashboard" class="dashboard">
+                <h2>Dashboard Overview</h2>
+                <div class="stats">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Assigned Students</h3>
+                        <p>10</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>Active Projects</h3>
+                        <p>5</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Upcoming Meetings</h3>
+                        <p>3</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Student Management Section -->
+            <section id="student-management" class="student-management">
+                <h2>Student Management</h2>
+                <button class="assign-student-btn" onclick="window.location.href='assign_student.html'">Assign Student to Project</button>
+                <div class="students">
+                    <div class="student">
+                        <p class="name">John Doe</p>
+                        <p class="project">Project: AI Chatbot Development</p>
+                        <div class="actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Remove</button>
+                        </div>
+                    </div>
+                    <div class="student">
+                        <p class="name">Jane Smith</p>
+                        <p class="project">Project: E-Commerce Platform</p>
+                        <div class="actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Management Section -->
+            <section id="project-management" class="project-management">
+                <h2>Project Management</h2>
+                <div class="projects">
+                    <div class="project">
+                        <h3>AI Chatbot Development</h3>
+                        <p><strong>Student:</strong> John Doe</p>
+                        <p><strong>Status:</strong> In Progress</p>
+                        <div class="actions">
+                            <button class="approve-btn">Approve Plan</button>
+                            <button class="reject-btn">Reject Plan</button>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <h3>E-Commerce Platform</h3>
+                        <p><strong>Student:</strong> Jane Smith</p>
+                        <p><strong>Status:</strong> Pending Approval</p>
+                        <div class="actions">
+                            <button class="approve-btn">Approve Plan</button>
+                            <button class="reject-btn">Reject Plan</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Meeting Management Section -->
+            <section id="meeting-management" class="meeting-management">
+                <h2>Meeting Management</h2>
+                <button class="schedule-meeting-btn">Schedule Meeting</button>
+                <div class="meetings">
+                    <div class="meeting">
+                        <p class="date">2023-10-10</p>
+                        <p class="details">Meeting with John Doe</p>
+                        <div class="actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                    <div class="meeting">
+                        <p class="date">2023-10-12</p>
+                        <p class="details">Meeting with Jane Smith</p>
+                        <div class="actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>  
+            </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback" class="feedback">
+            <h2>Feedback</h2>
+            <form id="supervisorFeedbackForm" action="../php/supervisor_submit_feedback.php" method="POST">
+                <input type="hidden" name="supervisor_name" value="Dr. Smith">
+                <div class="form-group">
+                    <label for="feedback-type">Feedback Type:</label>
+                    <select id="feedback-type" name="feedback_type" required>
+                        <option value="performance">Student Performance</option>
+                        <option value="system">System Improvement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="student-select">Student:</label>
+                    <select id="student-select" name="student_name" required>
+                        <option value="John Doe">John Doe</option>
+                        <option value="Jane Smith">Jane Smith</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback-text">Feedback:</label>
+                    <textarea id="feedback-text" name="feedback_text" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+
+    <!-- Feedback List -->
+    <div class="feedback-list">
+        <h3>Your Recent Feedback</h3>
+        <div id="supervisorFeedbackList"></div>
+    </div>
+</section>
+
+<script>
+    // Get elements
+    const feedbackType = document.getElementById('feedback-type');
+    const studentSelectGroup = document.getElementById('student-select-group');
+
+    // Event listener to toggle "Student" field visibility
+    feedbackType.addEventListener('change', function () {
+        if (feedbackType.value === 'system') {
+            // Remove the student-select-group from the DOM
+            if (studentSelectGroup) {
+                studentSelectGroup.remove();
+            }
+        } else if (!document.getElementById('student-select-group')) {
+            // Recreate the student-select-group and append it back if it was removed
+            const formGroup = document.createElement('div');
+            formGroup.className = 'form-group';
+            formGroup.id = 'student-select-group';
+            formGroup.innerHTML = `
+                <label for="student-select">Student:</label>
+                <select id="student-select" name="student_name" required>
+                    <option value="John Doe">John Doe</option>
+                    <option value="Jane Smith">Jane Smith</option>
+                </select>
+            `;
+            feedbackType.parentNode.insertAdjacentElement('afterend', formGroup);
+        }
+    });
+</script>
+
+
+<script>
+    // Submit Feedback
+    document.getElementById('supervisorFeedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+    
+        fetch('../php/supervisor_submit_feedback.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Feedback submitted successfully!');
+                this.reset();
+                loadSupervisorFeedback();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    // Load Feedback with Edit & Delete buttons
+    function loadSupervisorFeedback() {
+        const supervisorName = "Dr. Smith"; // Replace with dynamic value
+        
+        fetch(`../php/supervisor_get_feedback.php?supervisor_name=${encodeURIComponent(supervisorName)}`)
+        .then(response => response.json())
+        .then(feedback => {
+            const container = document.getElementById('supervisorFeedbackList');
+            container.innerHTML = '';
+
+            feedback.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'feedback-item';
+                div.innerHTML = `
+                    <p><strong>Student:</strong> ${item.student_name}</p>
+                    <p><strong>Type:</strong> ${item.feedback_type}</p>
+                    <p class="feedback-text">${item.feedback_text}</p>
+                    <small>${new Date(item.feedback_date).toLocaleString()}</small>
+                    <button class="edit-feedback-btn" data-id="${item.id}">Edit</button>
+                    <button class="delete-feedback-btn" data-id="${item.id}">Delete</button>
+                `;
+                container.appendChild(div);
+            });
+
+            // Attach event listeners
+            document.querySelectorAll('.edit-feedback-btn').forEach(btn => {
+                btn.addEventListener('click', editFeedback);
+            });
+
+            document.querySelectorAll('.delete-feedback-btn').forEach(btn => {
+                btn.addEventListener('click', deleteFeedback);
+            });
+        });
+    }
+
+    // Edit Feedback Function
+    function editFeedback(event) {
+        const feedbackId = event.target.getAttribute('data-id');
+        const newText = prompt("Edit your feedback:");
+
+        if (newText) {
+            fetch('../php/supervisor_edit_feedback.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `feedback_id=${feedbackId}&feedback_text=${encodeURIComponent(newText)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Feedback updated successfully!');
+                    loadSupervisorFeedback();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
+
+    // Delete Feedback Function
+    function deleteFeedback(event) {
+        const feedbackId = event.target.getAttribute('data-id');
+
+        if (confirm("Are you sure you want to delete this feedback?")) {
+            fetch('../php/supervisor_delete_feedback.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `feedback_id=${feedbackId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Feedback deleted successfully!');
+                    loadSupervisorFeedback();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
+
+    // Initial Load
+    document.addEventListener('DOMContentLoaded', loadSupervisorFeedback);
+</script>
+
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 web assignment . All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>

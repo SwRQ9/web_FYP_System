@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking - FYP Management System</title>
+    <link rel="stylesheet" href="..\css\progress_tracking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>FYP Management System</h1>
+        </div>
+        <nav>
+            <a href="student_dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Progress Tracking Section -->
+    <section class="progress-tracking">
+        <h2>Progress Tracking</h2>
+
+        <!-- Goal Setting Form -->
+        <div class="goal-setting">
+            <h3>Set a New Goal</h3>
+            <form id="goalSettingForm">
+                <div class="form-group">
+                    <label for="goal-title">Goal Title:</label>
+                    <input type="text" id="goal-title" name="goal-title" placeholder="Enter goal title" required>
+                </div>
+                <div class="form-group">
+                    <label for="goal-description">Description:</label>
+                    <textarea id="goal-description" name="goal-description" rows="4" placeholder="Enter goal description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="goal-deadline">Deadline:</label>
+                    <input type="date" id="goal-deadline" name="goal-deadline" required>
+                </div>
+                <button type="submit" class="submit-btn">Add Goal</button>
+            </form>
+        </div>
+
+        <!-- Progress Tracking Section -->
+        <div class="goals-list">
+            <h3>Your Goals</h3>
+            <div class="goal-card">
+                <h4>Complete Research Phase</h4>
+                <p><strong>Description:</strong> Conduct literature review and gather relevant data.</p>
+                <p><strong>Deadline:</strong> 2023-11-01</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%;"></div>
+                </div>
+                <p><strong>Progress:</strong> 60%</p>
+                <p><strong>Supervisor Feedback:</strong> "Good progress, but ensure all sources are properly cited."</p>
+            </div>
+            <div class="goal-card">
+                <h4>Develop Prototype</h4>
+                <p><strong>Description:</strong> Create a working prototype of the application.</p>
+                <p><strong>Deadline:</strong> 2023-11-15</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 30%;"></div>
+                </div>
+                <p><strong>Progress:</strong> 30%</p>
+                <p><strong>Supervisor Feedback:</strong> "Focus on core functionality first."</p>
+            </div>
+        </div>
+
+        <!-- Supervisor Feedback Form -->
+        <div class="supervisor-feedback">
+            <h3>Provide Feedback</h3>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="goal-select">Select Goal:</label>
+                    <select id="goal-select" name="goal-select" required>
+                        <option value="">-- Select a goal --</option>
+                        <option value="complete-research">Complete Research Phase</option>
+                        <option value="develop-prototype">Develop Prototype</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="feedback">Feedback:</label>
+                    <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your feedback" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

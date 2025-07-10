@@ -1,0 +1,482 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure sections have some padding at the top to account for the fixed header */
+section {
+    padding-top: 80px; /* Adjust based on your header height */
+    margin-top: -80px; /* Offset the padding to align content properly */
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+header nav a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin-left: 20px; /* Add spacing between links */
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #007bff;
+}
+
+/* Search Bar Styles */
+header nav .search-bar {
+    flex: 1; /* Allow the search bar to take up remaining space */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 20px; /* Add spacing between search bar and other links */
+}
+
+/* Layout Container */
+.layout {
+    display: flex;
+    min-height: 80vh;
+}
+
+/* Sidebar Section */
+.sidebar {
+    flex: 0 0 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    position: sticky;
+    top: 80px; /* Adjust based on header height */
+    height: calc(100vh - 80px); /* Full height minus header height */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar ul li a i {
+    font-size: 1.2rem;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Dashboard Section */
+.dashboard {
+    margin-bottom: 40px;
+}
+
+.dashboard h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.dashboard .stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.dashboard .stat-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .stat-card i {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.dashboard .stat-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.dashboard .stat-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Project Proposal Section */
+.project-proposal {
+    margin-bottom: 40px;
+}
+
+.project-proposal h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.project-proposal .proposal-form {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-proposal .form-group {
+    margin-bottom: 15px;
+}
+
+.project-proposal label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.project-proposal input,
+.project-proposal textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.project-proposal input:focus,
+.project-proposal textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.project-proposal textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.project-proposal .submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.project-proposal .submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Progress Tracking Section */
+.progress-tracking {
+    margin-bottom: 40px;
+}
+
+.progress-tracking h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.progress-tracking .goals {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.progress-tracking .goal {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress-tracking .goal h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.progress-tracking progress {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.progress-tracking p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Meeting Management Section */
+.meeting-management {
+    margin-bottom: 40px;
+}
+
+.meeting-management h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.meeting-management .meetings {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.meeting-management .meeting {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.meeting-management .meeting p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.meeting-management .meeting .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.meeting-management .meeting .actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.meeting-management .meeting .actions .view-btn {
+    background-color: #4caf50; /* Green for view */
+    color: #fff;
+}
+
+.meeting-management .meeting .actions .view-btn:hover {
+    background-color: #388e3c; /* Darker green */
+}
+
+/* Resource Sharing Section */
+.resource-sharing {
+    margin-bottom: 40px;
+}
+
+.resource-sharing h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.resource-sharing .upload-form {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resource-sharing .form-group {
+    margin-bottom: 15px;
+}
+
+.resource-sharing label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.resource-sharing input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.resource-sharing .submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.resource-sharing .submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.resource-sharing .files {
+    margin-top: 20px;
+}
+
+.resource-sharing .files p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Feedback Section */
+.feedback {
+    margin-bottom: 40px;
+}
+
+.feedback h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.feedback .feedback-form {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback .form-group {
+    margin-bottom: 15px;
+}
+
+.feedback label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.feedback textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.feedback .submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.feedback .submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+    color: #555;
+}

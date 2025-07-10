@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - web assignment</title>
+    <link rel="stylesheet" href="..\css\student_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Student Dashboard</h1>
+        </div>
+        <nav>
+            <input type="search" placeholder="Search projects..." class="search-bar">
+            <a href="home_page.html">Home</a>
+            <a href="project_proposal.html">Project Proposal</a>
+            <a href="progress_tracking.html">Progress Tracking</a>
+            <a href="meeting_management.html">Meetings</a>
+            <a href="resourse_page.html">Resources</a>
+            <a href="add_remove_goals.html">Goals</a>
+        </nav>
+    </header>
+
+    <!-- Layout Container -->
+    <div class="layout">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="student_dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="project_proposal.html"><i class="fas fa-project-diagram"></i> Project Proposal</a></li>
+                <li><a href="progress_tracking.html"><i class="fas fa-tasks"></i> Progress Tracking</a></li>
+                <li><a href="progress_bar.html"><i class=></i> Progress Bar</a></li>
+                <li><a href="meeting_management.html"><i class="fas fa-calendar-alt"></i> Meetings</a></li>
+                <li><a href="presentation_booking.html"><i class="fas fa-chalkboard-teacher"></i> Presentation Slot</a></li>
+                <li><a href="resourse_page.html"><i class="fas fa-file-upload"></i> Resources</a></li>
+                <li><a href="#feedback"><i class="fas fa-comments"></i> Feedback</a></li>
+                <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                
+            </ul>
+        </aside>
+        <!-- Main Content -->
+        <main>
+            <!-- Dashboard Overview Section -->
+            <section id="dashboard" class="dashboard">
+                <h2>Dashboard Overview</h2>
+                <div class="stats">
+                    <div class="stat-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>Active Projects</h3>
+                        <p>2</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Upcoming Meetings</h3>
+                        <p>1</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Pending Tasks</h3>
+                        <p>3</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Proposal Section -->
+            <section id="project-proposal" class="project-proposal">
+                <h2>Submit Project Proposal</h2>
+                <form class="proposal-form" action="../php/submit_proposal.php" method="POST">
+                    <div class="form-group">
+                        <label for="project-title">Project Title:</label>
+                        <input type="text" id="project-title" name="project-title" placeholder="Enter project title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-description">Project Description:</label>
+                        <textarea id="project-description" name="project-description" rows="4" placeholder="Enter project description" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Proposal</button>
+                </form>
+                <script>
+                    document.querySelector('.proposal-form').addEventListener('submit', function(event) {
+                        event.preventDefault();
+                        const formData = new FormData(this);
+
+                        fetch('../php/submit_proposal.php', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Proposal submitted successfully!');
+                                this.reset();
+                            } else {
+                                alert('Error: ' + data.message);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                    });
+                </script>
+            </section>
+                
+
+            <!-- Progress Tracking Section -->
+            <section id="progress-tracking" class="progress-tracking">
+                <h2>Progress Tracking</h2>
+                <div class="goals">
+                    <div class="goal">
+                        <h3>Goal 1: Research</h3>
+                        <progress value="50" max="100"></progress>
+                        <p>50% completed</p>
+                        <p><strong>Supervisor Feedback:</strong> "Good progress, but ensure all sources are properly cited."</p>
+                    </div>
+                    <div class="goal">
+                        <h3>Goal 2: Prototype Development</h3>
+                        <progress value="30" max="100"></progress>
+                        <p>30% completed</p>
+                        <p><strong>Supervisor Feedback:</strong> "Focus on core functionality first."</p>
+                    </div>
+                </div>
+            </section>
+
+            
+
+            <!-- Resource Sharing Section -->
+            
+
+            <!-- Feedback Section -->
+            <section id="feedback" class="feedback">
+                <h2>Feedback</h2>
+                <form id="feedbackForm" action="../php/submit_feedback.php" method="POST">
+
+                    <input type="hidden" name="user-type" value="student">
+                    <input type="hidden" name="user-name" value="John Doe"> <!-- Replace with dynamic student name if available -->
+                    <div class="form-group">
+                        <label for="feedback-type">Feedback Type:</label>
+                        <select id="feedback-type" name="feedback-type" required>
+                            <option value="project">Project</option>
+                            <option value="supervisor">Supervisor</option>
+                            <option value="system">System</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback-text">Your Feedback:</label>
+                        <textarea id="feedback-text" name="feedback-text" rows="4" placeholder="Enter your feedback" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                </form>
+
+                <!-- Feedback List -->
+                <div class="feedback-list">
+                    <h3>Your Submitted Feedback</h3>
+                    <div id="feedback-list">
+                        <!-- Feedback will be dynamically inserted here by JavaScript -->
+                        <p>Loading feedback...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 web assignment. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Feedback Submission, Editing, and Deletion -->
+    <script>
+        // Function to fetch and display feedback
+        function fetchFeedback() {
+            const user_name = "John Doe"; // Replace with dynamic student name if available
+            const user_type = "student";
+
+            fetch(`../php/get_feedback.php?user-name=${user_name}&user-type=${user_type}`)
+                .then(response => response.json())
+                .then(feedback => {
+                    const feedbackList = document.getElementById('feedback-list');
+                    feedbackList.innerHTML = ''; // Clear existing content
+
+                    if (feedback.length === 0) {
+                        feedbackList.innerHTML = '<p>No feedback submitted yet.</p>';
+                        return;
+                    }
+
+                    feedback.forEach(fb => {
+                        const feedbackCard = document.createElement('div');
+                        feedbackCard.className = 'feedback-card';
+
+                        feedbackCard.innerHTML = `
+                            <p><strong>Type:</strong> ${fb.feedback_type}</p>
+                            <p><strong>Feedback:</strong> ${fb.feedback_text}</p>
+                            <p><strong>Date:</strong> ${fb.feedback_date}</p>
+                            <div class="actions">
+                                <button class="edit-btn" data-id="${fb.id}">Edit</button>
+                                <button class="delete-btn" data-id="${fb.id}">Delete</button>
+                            </div>
+                        `;
+
+                        feedbackList.appendChild(feedbackCard);
+                    });
+
+                    // Add event listeners to edit buttons
+                    document.querySelectorAll('.edit-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const feedbackId = this.getAttribute('data-id');
+                            const feedbackText = this.closest('.feedback-card').querySelector('p:nth-child(2)').innerText.replace('Feedback: ', '');
+                            editFeedback(feedbackId, feedbackText);
+                        });
+                    });
+
+                    // Add event listeners to delete buttons
+                    document.querySelectorAll('.delete-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const feedbackId = this.getAttribute('data-id');
+                            if (confirm('Are you sure you want to delete this feedback?')) {
+                                deleteFeedback(feedbackId);
+                            }
+                        });
+                    });
+                })
+                .catch(error => console.error('Error fetching feedback:', error));
+        }
+
+        // Function to edit feedback
+        function editFeedback(feedbackId, feedbackText) {
+            const newFeedbackText = prompt('Edit your feedback:', feedbackText);
+
+            if (newFeedbackText !== null) {
+                const formData = new FormData();
+                formData.append('id', feedbackId);
+                formData.append('feedback-text', newFeedbackText);
+
+                fetch('../php/edit_feedback.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(message => {
+                    alert(message); // Show the update message
+                    fetchFeedback(); // Refresh the feedback list
+                })
+                .catch(error => {
+                    console.error('Error updating feedback:', error);
+                    alert('Error updating feedback. Please try again.');
+                });
+            }
+        }
+
+        // Function to delete feedback
+        function deleteFeedback(feedbackId) {
+            fetch(`../php/delete_feedback.php?id=${feedbackId}`)
+                .then(response => response.text())
+                .then(message => {
+                    alert(message); // Show the deletion message
+                    fetchFeedback(); // Refresh the feedback list
+                })
+                .catch(error => {
+                    console.error('Error deleting feedback:', error);
+                    alert('Error deleting feedback. Please try again.');
+                });
+        }
+
+        // Handle form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting traditionally
+
+            const formData = new FormData(this); // Create a FormData object from the form
+
+            fetch('../php/submit_feedback.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(message => {
+                alert(message); // Show the submission message
+                fetchFeedback(); // Refresh the feedback list
+            })
+            .catch(error => {
+                console.error('Error submitting feedback:', error);
+                alert('Error submitting feedback. Please try again.');
+            });
+        });
+
+        // Fetch feedback when the page loads
+        document.addEventListener('DOMContentLoaded', fetchFeedback);
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Project Goals</title>
+    <link rel="stylesheet" href="set_project_goals.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Set Project Goals</h2>
+        <form method="post" action="set_goals.php">
+            <label for="student_id">Student ID:</label>
+            <input type="text" id="student_id" name="student_id" required><br>
+            
+            <label for="goal">Goal:</label>
+            <textarea id="goal" name="goal" required></textarea><br>
+            
+            <button type="submit" name="set_goal">Set Goal</button>
+        </form>
+    </div>
+</body>
+</html>

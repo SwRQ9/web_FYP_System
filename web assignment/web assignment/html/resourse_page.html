@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Sharing - web assignment</title>
+    <link rel="stylesheet" href="../css/resource_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>web assignment</h1>
+        </div>
+        <nav>
+            <a href="student_dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Resource Sharing Section -->
+    <section class="resource-sharing">
+        <h2>Resource Sharing</h2>
+
+        <!-- File Upload Form -->
+        <div class="upload-form">
+            <h3>Upload a File</h3>
+            <form id="uploadForm" action="../php/upload.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file-name">File Name:</label>
+                    <input type="text" id="file-name" name="file-name" placeholder="Enter file name" required>
+                </div>
+                <div class="form-group">
+                    <label for="file-description">File Description:</label>
+                    <textarea id="file-description" name="file-description" rows="4" placeholder="Enter file description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="uploaded_by">Your Name:</label>
+                    <input type="text" id="uploaded_by" name="uploaded_by" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="file-upload">Upload File:</label>
+                    <input type="file" id="file-upload" name="file" required>
+                </div>
+                <button type="submit" class="submit-btn">Upload File</button>
+            </form>
+        </div>
+
+        <!-- List of Uploaded Files -->
+        <div class="uploaded-files">
+            <h3>Uploaded Files</h3>
+            <div class="files-list">
+                <?php include '../php/fetch_files.php'; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for File Upload and Fetching Files -->
+    <script>
+        // Function to fetch and display files
+        function fetchFiles() {
+            fetch('../php/get_files.php')
+                .then(response => response.json())
+                .then(files => {
+                    const filesList = document.querySelector('.files-list');
+                    filesList.innerHTML = ''; // Clear existing content
+
+                    if (files.length === 0) {
+                        filesList.innerHTML = '<p>No files uploaded yet.</p>';
+                        return;
+                    }
+
+                    files.forEach(file => {
+                        const fileCard = document.createElement('div');
+                        fileCard.className = 'file-card';
+
+                        fileCard.innerHTML = `
+                            <h4>${file.file_name}</h4>
+                            <p><strong>Uploaded By:</strong> ${file.uploaded_by}</p>
+                            <p><strong>Uploaded On:</strong> ${file.uploaded_at}</p>
+                            <div class="actions">
+                                <a href="${file.file_path}" class="download-btn">Download</a>
+                                <button class="delete-btn" data-id="${file.id}">Delete</button>
+                            </div>
+                        `;
+
+                        filesList.appendChild(fileCard);
+                    });
+
+                    // Add event listeners to delete buttons
+                    document.querySelectorAll('.delete-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const fileId = this.getAttribute('data-id');
+                            if (confirm('Are you sure you want to delete this file?')) {
+                                deleteFile(fileId);
+                            }
+                        });
+                    });
+                })
+                .catch(error => console.error('Error fetching files:', error));
+        }
+
+        // Function to delete a file
+        function deleteFile(fileId) {
+            fetch(`../php/delete_file.php?id=${fileId}`)
+                .then(response => response.text())
+                .then(message => {
+                    alert(message);
+                    fetchFiles(); // Refresh the file list
+                })
+                .catch(error => console.error('Error deleting file:', error));
+        }
+
+        // Handle form submission
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting traditionally
+
+            const formData = new FormData(this); // Create a FormData object from the form
+
+            fetch('../php/upload.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(message => {
+                alert(message); // Show the upload message
+                fetchFiles(); // Refresh the file list
+            })
+            .catch(error => {
+                console.error('Error uploading file:', error);
+                alert('Error uploading file. Please try again.');
+            });
+        });
+
+        // Fetch files when the page loads
+        document.addEventListener('DOMContentLoaded', fetchFiles);
+    </script>
+</body>
+</html>

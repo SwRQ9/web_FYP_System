@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Planning - FYP Management System</title>
+    <link rel="stylesheet" href="..\css\project_planning.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>FYP Management System</h1>
+        </div>
+        <nav>
+            <a href="student_dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Project Planning Form Section -->
+    <section class="project-planning-form">
+        <h2>Project Planning</h2>
+        <form id="projectPlanForm">
+            <div class="form-group">
+                <label for="project-title">Project Title:</label>
+                <input type="text" id="project-title" name="project-title" placeholder="Enter project title" required>
+            </div>
+            <div class="form-group">
+                <label for="objectives">Objectives:</label>
+                <textarea id="objectives" name="objectives" rows="4" placeholder="Enter project objectives" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="timeline">Timeline:</label>
+                <textarea id="timeline" name="timeline" rows="4" placeholder="Enter project timeline" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="resources">Resources Required:</label>
+                <textarea id="resources" name="resources" rows="4" placeholder="Enter resources required" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Plan</button>
+        </form>
+    </section>
+</body>
+</html>

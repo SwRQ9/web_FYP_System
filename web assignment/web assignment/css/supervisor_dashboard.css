@@ -1,0 +1,451 @@
+/* supervisor_dashboard.css - Unique styles for the supervisor dashboard */
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header .logo {
+    flex: 1;
+}
+
+header .logo h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+    text-align: left;
+}
+
+header .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav a {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+}
+
+header .search-bar {
+    padding: 5px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+header .logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+header nav a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+header nav a:hover {
+    color: #007bff;
+}
+
+/* Layout Container */
+.layout {
+    display: flex;
+    min-height: 80vh;
+}
+
+/* Sidebar Section */
+.sidebar {
+    flex: 0 0 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar ul li a i {
+    font-size: 1.2rem;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Dashboard Section */
+.dashboard {
+    margin-bottom: 40px;
+}
+
+.dashboard h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.dashboard .stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.dashboard .stat-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .stat-card i {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.dashboard .stat-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.dashboard .stat-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Student Management Section */
+.student-management {
+    margin-bottom: 40px;
+}
+
+.student-management h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.student-management .assign-student-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.student-management .assign-student-btn:hover {
+    background-color: #0056b3;
+}
+
+.student-management .students {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.student-management .student {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-management .student .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.student-management .student .project {
+    font-size: 1rem;
+    color: #555;
+}
+
+.student-management .student .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.student-management .student .actions button {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.student-management .student .actions button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Project Management Section */
+.project-management {
+    margin-bottom: 40px;
+}
+
+.project-management h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.project-management .projects {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-management .project {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-management .project h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-management .project p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.project-management .project .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.project-management .project .actions button {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.project-management .project .actions button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Meeting Management Section */
+.meeting-management {
+    margin-bottom: 40px;
+}
+
+.meeting-management h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.meeting-management .schedule-meeting-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.meeting-management .schedule-meeting-btn:hover {
+    background-color: #0056b3;
+}
+
+.meeting-management .meetings {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.meeting-management .meeting {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.meeting-management .meeting .date {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.meeting-management .meeting .details {
+    font-size: 1rem;
+    color: #555;
+}
+
+.meeting-management .meeting .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.meeting-management .meeting .actions button {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.meeting-management .meeting .actions button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Feedback Section */
+.feedback {
+    margin-bottom: 40px;
+}
+
+.feedback h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.feedback .feedback-form {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback .form-group {
+    margin-bottom: 15px;
+}
+
+.feedback label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.feedback select, .feedback textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.feedback .submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.feedback .submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+    color: #555;
+}

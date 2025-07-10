@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Form</title>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var formData = new FormData(document.getElementById("proposalForm"));
+
+            fetch("project_proposal.php", {
+                method: "POST",
+                body: formData
+            }).then(response => response.text())
+              .then(data => {
+                alert("Proposal submitted successfully!");
+            }).catch(error => {
+                console.error("Error:", error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Submit Project Proposal</h2>
+    <form id="proposalForm" onsubmit="submitForm(event)">
+        <label for="project_title">Project Title:</label>
+        <input type="text" id="project_title" name="project_title" required><br>
+        
+        <label for="project_description">Project Description:</label>
+        <textarea id="project_description" name="project_description" required></textarea><br>
+        
+        <button type="submit">Submit Proposal</button>
+    </form>
+</body>
+</html>

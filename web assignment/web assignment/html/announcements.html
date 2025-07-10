@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - web assignment</title>
+    <link rel="stylesheet" href="..\css\announcements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>web assignment</h1>
+        </div>
+        <nav>
+            <a href="student_dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Announcements Section -->
+    <section class="announcements">
+        <h2>Announcements</h2>
+
+        <!-- Announcement Creation Form -->
+        <div class="announcement-form">
+            <h3>Create New Announcement</h3>
+            <!-- Added form -->
+            <form action="..\php\post_announcement.php" method="POST">
+                
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" placeholder="Enter announcement title" required><br><br>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content:</label>
+                    <textarea id="content" name="content" placeholder="Enter announcement content" required></textarea><br><br>
+                </div>
+                <button type="submit" class="submit-btn">Post Announcement</button>
+            </form>
+        </div>
+
+        
+    </section>
+</body>
+</html>
